@@ -17,6 +17,10 @@ app.post('/enroll' , function(rq,rs){
     rs.status(200).send({"message":"Data Received"});
 })
 
+app.post('/enrollerror' , function(rq,rs){
+    console.log(rq.body);
+    rs.status(401).send({"message":"Data Received"});
+})
 
 app.listen(PORT , function(){
     console.log('Server is Running : ' + PORT);

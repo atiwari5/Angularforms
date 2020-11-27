@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from './user';
 import { EnrollmentService } from './enrollment.service'
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,8 @@ export class AppComponent {
   topics = ['Angular' , 'React' , 'Vue']
   topichasError = true;
   formSubmitted = false;
+  errorMessage = '' ;
+
 
   inputuser = new User("Rob" , "test@test.com" , 23232323 , "default" , "morning" , true)
 
@@ -34,8 +37,9 @@ export class AppComponent {
     this._enrollementservice.posttoserver(this.inputuser)
     .subscribe(
       data=> console.log('Sucess' ,data) ,
-      error=> console.log('error' , error)
-    )
+      //error=> console.log('error' , error)
+      error => this.errorMessage = error.statusText
+     )
     
   }  
 

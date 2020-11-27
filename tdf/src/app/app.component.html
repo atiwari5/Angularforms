@@ -2,6 +2,9 @@
 
   <h1>BootCamp Enrollement Form</h1>
 
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{errorMessage}}
+  </div>
   <form #testform="ngForm" *ngIf='!formSubmitted' (ngSubmit)="onSubmit()" novalidate>
 
   <!-- {{testform.form.valid}} -->
